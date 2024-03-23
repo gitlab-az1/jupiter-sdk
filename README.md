@@ -1,1 +1,1 @@
-# jupiter-sdk
+# Jupiter SDK
