@@ -1,7 +1,7 @@
 import HttpClient from './http';
 import Producer from './producer';
 import Credentials from '../Credentials';
-import { API_BASE_URL, DECIMAL_BASE_NUMBERS } from 'src/_internal/utils';
+import { API_BASE_URL, DECIMAL_BASE_NUMBERS } from '../_internal/utils';
 
 
 export type Header = { key: string; value: string };

@@ -1,4 +1,5 @@
 import Credentials from './Credentials';
+import { MessageBroker } from './message-broker/core';
 
 
 export interface ApiGateway {
@@ -7,6 +8,7 @@ export interface ApiGateway {
 
 export class Jupiter implements ApiGateway {
   readonly #c: Credentials;
+  #broker?: MessageBroker;
 
   public constructor(
     credentials: Credentials // eslint-disable-line comma-dangle
@@ -21,6 +23,14 @@ export class Jupiter implements ApiGateway {
 
   public get credentials(): Credentials {
     return this.#c;
+  }
+
+  public get messageBroker(): MessageBroker {
+    if(!this.#broker) {
+      this.#broker = new MessageBroker(this.#c);
+    }
+
+    return this.#broker;
   }
 }
 
